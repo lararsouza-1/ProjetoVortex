@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="Css/style.css">
+
+</head>
+
+<body>
+
+    <header>
+        <div class="logo">
+            <img src="***" alt="logo">
+        </div>
+        <nav>
+            <a class="active">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="clientes.html">Clientes</a>
+            <a href="estoque.html">Estoque</a>
+            <a href="vendas.html">Vendas</a>
+            <a href="financeiro.html">Financeiro</a>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Dashboard</h1>
+        <p class="sub">Visão Geral do Seu Negócio</p>
+
+        <section class="cards ">
+            <div class="card destaque">
+                <h3>Produtos Cadastrados</h3>
+                <p class="number" id="produtos">0</p>
+                <span id="totalProdutosTexto">0 produtos no catálogo</span>
+            </div>
+
+            <div class="card destaque">
+                <h3>Clientes Ativos</h3>
+                <p class="number" id="clientes">0</p>
+                <span class="positivo" id="novosClientes">0 novos este mês</span>
+            </div>
+
+            <div class="card destaque">
+                <h3>Vendas do Mês</h3>
+                <p class="number" id="vendas">R$ 0</p>
+                <span class="positivo" id="crescimento">0% vs mês anterior</span>
+            </div>
+
+            <div class="card destaque">
+                <h3>Contas a Receber</h3>
+                <p class="number" id="contas">R$ 0</p>
+                <span id="faturas">0 faturas pendentes</span>
+            </div>
+        </section>
+
+        <section class="grid">
+            <div class="box">
+                <h3>Produtos com Estoque Baixo</h3>
+                <ul id="estoque"></ul>
+            </div>
+
+            <div class="box">
+                <h3>Últimas Vendas</h3>
+                <ul id="vendasLista"></ul>
+            </div>
+        </section>
+    </main>
+
+</body>
+
+</html>
