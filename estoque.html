@@ -2,25 +2,93 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estoque</title>
-    <link rel="stylesheet" href="Css/style4.css">
-</head>
-<body>
-    
-    <header>
-    <div class="logo">
-        <img src="***" alt="logo">
-    </div>
-        <nav>
-            <a href="dashboard.html">Dashboard</a>
-            <a href="produtos.html">Produtos</a>
-            <a href="clientes.html">Clientes</a>
-            <a class="active">Estoque</a>
-            <a href="vendas.html">Vendas</a>
-            <a href="financeiro.html">Financeiro</a>
-        </nav>
-    </header>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <title>Estoque</title>
+                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+                    rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+                        <link rel="stylesheet" href="Css/style4.css">
+                        </head>
+                        <body>
+                            
+<header>
+            <div class="logo">
+            <img src="***" alt="logo">
+</div>
+<nav>
+    <a href="dashboard.html">Dashboard</a>
+    <a href="produtos.html">Produtos</a>
+    <a href="clientes.html">Clientes</a>
+        <a class="active">Estoque</a>
+        <a href="vendas.html">Vendas</a>
+        <a href="financeiro.html">Financeiro</a>
+            </nav>
+        </header>
+        <main>
+        <div class="topo">
+                    <h2>Estoque</h2>
+        <p class="sub">Gerencie seus produtos</p>
+        </div>
+        <div class="d-flex justify-content-end mb-3">
+        <button type="button" class="btn btn-primary ">
+        + Adicione um Produto </button>
+        </div>
+        <section class="box">
+
+    <h3>Produtos</h3>
+
+    <input 
+        type="text"
+        class="form-control mb-3"
+        placeholder="Pesquisar produto..."
+    >
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>SKU</th>
+                <th>Produto</th>
+                <th>Categoria</th>
+                <th>Estoque</th>
+                <th>Status</th>
+                <th>Preço</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody id="tabelaProdutos"></tbody>
+        <tr>
+      <th scope="row">CAM-001</th>
+      <td>Camiseta Básica Branca</td>
+      <td>Vestiário</td>
+      <td>45un</td>
+      <td>
+  <span class="status ok">OK</span>
+    </td>
+    <td>R$49,90</td>
+    </tr>
+    <tr>
+        <th scope="row">CAN-002</th>
+        <td>Caneca Personalizada</td>
+        <td>Acessórios</td>
+        <td>5un</td>
+        <td>
+        <span class="status medio">Médio</span>
+        </td>
+        <td>R$25,00</td>
+     </tr>
+     <tr>
+        <th scope="row"">CAD-003</th>
+        <td>Caderno A4</td>
+        <td>Papelaria</td>
+        <td>3un</td>
+        <td>
+        <span class="status baixo">Baixo</span>
+        </td>
+        <td>R$15,50</td>
+     </tr>
+    </table>
+
+</section>
+</main>
 
     
 </body>

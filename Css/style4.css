@@ -67,3 +67,68 @@ nav .active {
     color: white;
     box-shadow: 0 5px 12px rgba(2, 136, 209, 0.3);
 }
+
+button {
+    background: linear-gradient(135deg, #29b6f6, #0288d1);
+    border: none;
+    color: white;
+    padding: 12px 22px;
+    border-radius: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+    box-shadow: 0 6px 15px rgba(2, 136, 209, 0.25);
+
+    
+  button:hover {
+    transform: translateY(-3px);
+    opacity: 0.95;
+}  
+
+}
+.box {
+    background: rgba(255, 255, 255, 0.82);
+    backdrop-filter: blur(8px);
+    border-radius: 22px;
+    padding: 25px;
+    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.12);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    overflow: hidden;
+    border-radius: 18px;
+}
+.status{
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  color: white;
+}
+.ok{
+    background-color: green;
+}
+.medio{
+    background-color: orange;
+}
+.baixo{
+    background-color: red;
+}
+.topo {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+}
+
+.topo h2 {
+    font-size: 40px;
+    color: #01579b;
+}
+
+.sub {
+    color: #3d7ea6;
+    margin-top: 5px;
+}
