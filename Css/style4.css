@@ -116,19 +116,27 @@ table {
 .baixo{
     background-color: red;
 }
-.topo {
+.topo { 
     display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 35px;
+  justify-content: space-between; 
+  align-items: center;           
+  padding: 20px 50px;                 
+  width: 100%; 
+  margin-bottom: 24px; 
+  position: relative;
 }
 
 .topo h2 {
     font-size: 40px;
     color: #01579b;
 }
-
-.sub {
-    color: #3d7ea6;
-    margin-top: 5px;
+.subtitulo {
+    font-size: 14px;
+    color: #546e7a;
+    font-weight: 500;
+}
+.titulos-topo {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
 }
