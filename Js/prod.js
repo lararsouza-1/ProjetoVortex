@@ -6,6 +6,17 @@ function abrirCadastro() {
 
 function fecharModal() {
     document.getElementById("modalProduto").style.display = "none";
+
+    linhaEditando = null;
+
+    document.getElementById("nome").value = "";
+    document.getElementById("sku").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("categoria").value = "";
+    document.getElementById("preco").value = "";
+    document.getElementById("custo").value = "";
+    document.getElementById("estoque").value = "";
+    document.getElementById("min").value = "";
 }
 
 document.getElementById("totalProdutos").innerHTML = "3";
@@ -35,10 +46,7 @@ document.getElementById("tabelaProdutos").innerHTML =
     "<td>40%</td>" +
     "<td>10</td>" +
     "<td><span class='status-ativo'>Ativo</span></td>" +
-    "<td>" +
-    "<button onclick='editarProduto(this)'>Editar</button> " +
-    "<button onclick='excluirProduto(this)'>Excluir</button>" +
-    "</td>" +
+    "<td><button onclick='editarProduto(this)'>Editar</button> <button onclick='excluirProduto(this)'>Excluir</button></td>" +
     "</tr>" +
 
     "<tr>" +
@@ -50,10 +58,7 @@ document.getElementById("tabelaProdutos").innerHTML =
     "<td>40%</td>" +
     "<td>2</td>" +
     "<td><span class='status-baixo'>Baixo</span></td>" +
-    "<td>" +
-    "<button onclick='editarProduto(this)'>Editar</button> " +
-    "<button onclick='excluirProduto(this)'>Excluir</button>" +
-    "</td>" +
+    "<td><button onclick='editarProduto(this)'>Editar</button> <button onclick='excluirProduto(this)'>Excluir</button></td>" +
     "</tr>" +
 
     "<tr>" +
@@ -65,22 +70,26 @@ document.getElementById("tabelaProdutos").innerHTML =
     "<td>22%</td>" +
     "<td>5</td>" +
     "<td><span class='status-ativo'>Ativo</span></td>" +
-    "<td>" +
-    "<button onclick='editarProduto(this)'>Editar</button> " +
-    "<button onclick='excluirProduto(this)'>Excluir</button>" +
-    "</td>" +
+    "<td><button onclick='editarProduto(this)'>Editar</button> <button onclick='excluirProduto(this)'>Excluir</button></td>" +
     "</tr>";
 
 function salvarProduto() {
 
     let nome = document.getElementById("nome").value;
+    let sku = document.getElementById("sku").value;
+    let desc = document.getElementById("desc").value;
     let categoria = document.getElementById("categoria").value;
-    let precoVenda = document.getElementById("precoVenda").value;
-    let precoCusto = document.getElementById("precoCusto").value;
+    let preco = document.getElementById("preco").value;
+    let custo = document.getElementById("custo").value;
     let estoque = document.getElementById("estoque").value;
 
     if (nome == "") {
         alert("Digite o nome do produto!");
+        return;
+    }
+
+    if (sku == "") {
+        alert("Digite o SKU!");
         return;
     }
 
@@ -89,13 +98,13 @@ function salvarProduto() {
         return;
     }
 
-    if (precoVenda == "") {
-        alert("Digite o preço de venda!");
+    if (preco == "") {
+        alert("Digite o preço!");
         return;
     }
 
-    if (precoCusto == "") {
-        alert("Digite o preço de custo!");
+    if (custo == "") {
+        alert("Digite o custo!");
         return;
     }
 
@@ -104,80 +113,62 @@ function salvarProduto() {
         return;
     }
 
-    let codigo = "00" + (document.getElementById("tabelaProdutos").getElementsByTagName("tr").length + 1);
-    let lucro = precoVenda - precoCusto;
-    let margem = (lucro * 100) / precoVenda;
+    let lucro = preco - custo;
+    let margem = (lucro * 100) / preco;
     let status = "";
 
     if (estoque <= 2) {
-        status = "<span class='status-baixo'>Baixo</span>";
-    } else {
-        status = "<span class='status-ativo'>Ativo</span>";
-    }
+    status = "<span class='status-vencido'>Baixo</span>";
+} else {
+    status = "<span class='status-pago'>Ativo</span>";
+}
+
     if (linhaEditando != null) {
 
-    linhaEditando.cells[1].innerHTML = nome;
-    linhaEditando.cells[2].innerHTML = categoria;
-    linhaEditando.cells[3].innerHTML = "R$ " + precoVenda;
-    linhaEditando.cells[4].innerHTML = "R$ " + precoCusto;
-    linhaEditando.cells[5].innerHTML = margem.toFixed(0) + "%";
-    linhaEditando.cells[6].innerHTML = estoque;
-    linhaEditando.cells[7].innerHTML = status;
+        linhaEditando.cells[0].innerHTML = sku;
+        linhaEditando.cells[1].innerHTML = nome;
+        linhaEditando.cells[2].innerHTML = categoria;
+        linhaEditando.cells[3].innerHTML = "R$ " + preco;
+        linhaEditando.cells[4].innerHTML = "R$ " + custo;
+        linhaEditando.cells[5].innerHTML = margem.toFixed(0) + "%";
+        linhaEditando.cells[6].innerHTML = estoque;
+        linhaEditando.cells[7].innerHTML = status;
 
-    alert("Produto atualizado com sucesso!");
+        alert("Produto atualizado com sucesso!");
 
-    linhaEditando = null;
+        fecharModal();
 
-    fecharModal();
-
-    return;
-}
+        return;
+    }
 
     document.getElementById("tabelaProdutos").innerHTML +=
         "<tr>" +
-        "<td>" + codigo + "</td>" +
+        "<td>" + sku + "</td>" +
         "<td>" + nome + "</td>" +
         "<td>" + categoria + "</td>" +
-        "<td>R$ " + precoVenda + "</td>" +
-        "<td>R$ " + precoCusto + "</td>" +
+        "<td>R$ " + preco + "</td>" +
+        "<td>R$ " + custo + "</td>" +
         "<td>" + margem.toFixed(0) + "%</td>" +
         "<td>" + estoque + "</td>" +
         "<td>" + status + "</td>" +
-        "<td>" +
-        "<button onclick='editarProduto(this)'>Editar</button> " +
-        "<button onclick='excluirProduto(this)'>Excluir</button>" +
-        "</td>" +
+        "<td><button onclick='editarProduto(this)'>Editar</button> <button onclick='excluirProduto(this)'>Excluir</button></td>" +
         "</tr>";
 
     alert("Produto cadastrado com sucesso!");
-
-    document.getElementById("nome").value = "";
-    document.getElementById("categoria").value = "";
-    document.getElementById("precoVenda").value = "";
-    document.getElementById("precoCusto").value = "";
-    document.getElementById("estoque").value = "";
 
     fecharModal();
 }
 
 function editarProduto(botao) {
 
-    linhaEditando = botao.parentNode.parentNode;
+    linhaEditando = botao.closest("tr");
 
-    document.getElementById("nome").value =
-        linhaEditando.cells[1].innerText;
-
-    document.getElementById("categoria").value =
-        linhaEditando.cells[2].innerText;
-
-    document.getElementById("precoVenda").value =
-        linhaEditando.cells[3].innerText.replace("R$ ", "");
-
-    document.getElementById("precoCusto").value =
-        linhaEditando.cells[4].innerText.replace("R$ ", "");
-
-    document.getElementById("estoque").value =
-        linhaEditando.cells[6].innerText;
+    document.getElementById("sku").value = linhaEditando.cells[0].innerText;
+    document.getElementById("nome").value = linhaEditando.cells[1].innerText;
+    document.getElementById("categoria").value = linhaEditando.cells[2].innerText;
+    document.getElementById("preco").value = linhaEditando.cells[3].innerText.replace("R$ ", "");
+    document.getElementById("custo").value = linhaEditando.cells[4].innerText.replace("R$ ", "");
+    document.getElementById("estoque").value = linhaEditando.cells[6].innerText;
 
     document.getElementById("modalProduto").style.display = "block";
 }
@@ -187,7 +178,7 @@ function excluirProduto(botao) {
     let resposta = confirm("Deseja excluir este produto?");
 
     if (resposta == true) {
-        botao.parentNode.parentNode.remove();
+        botao.closest("tr").remove();
         alert("Produto excluído com sucesso!");
     }
 }

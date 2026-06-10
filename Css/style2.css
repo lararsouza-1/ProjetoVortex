@@ -241,6 +241,15 @@ th,
 td {
     padding: 15px;
     text-align: center;
+    vertical-align: middle;
+}
+
+td:last-child {
+    white-space: nowrap;
+}
+
+td button {
+    margin: 2px;
 }
 
 tbody tr {
