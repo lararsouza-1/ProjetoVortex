@@ -2,97 +2,113 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-            <title>Estoque</title>
-                <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
-                    rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
-                        <link rel="stylesheet" href="Css/style4.css">
-                        </head>
-                        <body>
-                            
-<header>
-            <div class="logo">
-            <img src="***" alt="logo">
-</div>
-<nav>
-    <a href="dashboard.html">Dashboard</a>
-    <a href="produtos.html">Produtos</a>
-    <a href="clientes.html">Clientes</a>
-        <a class="active">Estoque</a>
-        <a href="vendas.html">Vendas</a>
-        <a href="financeiro.html">Financeiro</a>
-            </nav>
-        </header>
-        <main>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Estoque</title>
+    <link rel="stylesheet" href="Css/style4.css">
+</head>
+<body>
+    
+    <header>
+    <div class="logo">
+        <img src="***" alt="logo">
+    </div>
+        <nav>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="produtos.html">Produtos</a>
+            <a href="clientes.html">Clientes</a>
+            <a class="active">Estoque</a>
+            <a href="vendas.html">Vendas</a>
+            <a href="financeiro.html">Financeiro</a>
+        </nav>
+    </header>
+     <main>
         <div class="topo">
-            <div class="titulos-topo">
-                    <h2>Estoque</h2>
-        <p class="subtitulo">Gerencie seus produtos</p>
-    </div>
-     </div>
-       <div class="d-flex justify-content-end w-100 mb-3" style="margin-bottom: 30px !important;">
-      <button type="button" class="btn btn-primary">
-        + Adicione um Produto
-      </button>
-    </div>
+            <div>
+                <h1>Estoque</h1>
+                <p class="sub">Gerencie seu estoque</p>
+            </div>
+
+            <button onclick="abrirCadastro()">+ Novo Produto</button>
+        </div>
 
         <section class="box">
+            <h3>Produtos</h3>
 
-    <h3>Produtos</h3>
+            <div class="filtros">
+                <input type="text" id="busca" placeholder="Buscar produtos..." onkeyup="filtrar()">
+            </div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>SKU</th>
+                        <th>Produto</th>
+                        <th>Categoria</th>
+                        <th>Estoque</th>
+                        <th>Status</th>
+                        <th>Preço</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+                <tbody id="tabelaProdutos"></tbody>
+            </table>
+        </section>
+    </main>
 
-    <input 
-        type="text"
-        class="form-control mb-3"
-        placeholder="Pesquisar produto..."
-    >
+    <div id="modalProduto" class="modal">
+        <div class="modal-content">
+            <span class="fechar" onclick="fecharModal()">×</span>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>SKU</th>
-                <th>Produto</th>
-                <th>Categoria</th>
-                <th>Estoque</th>
-                <th>Status</th>
-                <th>Preço</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody id="tabelaProdutos"></tbody>
-        <tr>
-      <th scope="row">CAM-001</th>
-      <td>Camiseta Básica Branca</td>
-      <td>Vestiário</td>
-      <td>45un</td>
-      <td>
-  <span class="status ok">OK</span>
-    </td>
-    <td>R$49,90</td>
-    </tr>
-    <tr>
-        <th scope="row">CAN-002</th>
-        <td>Caneca Personalizada</td>
-        <td>Acessórios</td>
-        <td>5un</td>
-        <td>
-        <span class="status medio">Médio</span>
-        </td>
-        <td>R$25,00</td>
-     </tr>
-     <tr>
-        <th scope="row"">CAD-003</th>
-        <td>Caderno A4</td>
-        <td>Papelaria</td>
-        <td>3un</td>
-        <td>
-        <span class="status baixo">Baixo</span>
-        </td>
-        <td>R$15,50</td>
-     </tr>
-    </table>
+            <h2>Adicionar Novo Produto</h2>
+            <p class="sub">Preencha as informações</p>
 
-</section>
-</main>
+            <div class="form-grid">
+                <div>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite o nome do produto">
+                </div>
+
+                <div>
+                    <label for="sku">SKU</label>
+                    <input type="text" id="sku" placeholder="Digite o SKU">
+                </div>
+
+                <div class="full">
+                    <label for="desc">Descrição</label>
+                    <input type="text" id="desc" placeholder="Digite a descrição">
+                </div>
+
+                <div>
+                    <label for="categoria">Categoria</label>
+                    <input type="text" id="categoria" placeholder="Digite a categoria">
+                </div>
+
+                <div>
+                    <label for="preco">Preço</label>
+                    <input type="number" id="preco" placeholder="Digite o preço">
+                </div>
+
+                <div>
+                    <label for="custo">Custo</label>
+                    <input type="number" id="custo" placeholder="Digite o custo">
+                </div>
+
+                <div>
+                    <label for="estoque">Estoque</label>
+                    <input type="number" id="estoque" placeholder="Digite a quantidade">
+                </div>
+
+                <div>
+                    <label for="min">Estoque Mínimo</label>
+                    <input type="number" id="min" placeholder="Digite o estoque mínimo">
+                </div>
+            </div>
+
+            <div class="acoes">
+                <button class="cancelar" onclick="fecharModal()">Cancelar</button>
+                <button onclick="salvarProduto()">Adicionar</button>
+            </div>
+        </div>
+    </div>
 
     
 </body>

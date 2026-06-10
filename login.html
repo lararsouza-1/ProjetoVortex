@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,22 +9,29 @@
 </head>
 
 <body>
-<div class="container">
-    <img src="" alt="logo">
-    <h1>Vortex</h1>
-    <div class="card">
-        <h2>Entrar no Sistema</h2>
-        <p>Digite suas credenciais para acessar</p>
-      <form id="loginForm">
-            <label>E-mail</label>
-            <input type="email" name="email" placeholder="seu@email.com" required>
-            <label>Senha</label>
-            <input type="password" name="senha" placeholder="Digite sua senha" required>
-            <button type="submit">Entrar</button>
-      </form>
-    </div>
-<p>Não tem conta? <a href="cadastro.html">Cadastre-se</a> </p>
-</div>
+    <div class="container">
+        <img src="" alt="logo">
+        <h1>Vortex</h1>
 
+        <div class="card">
+            <h2>Entrar no Sistema</h2>
+            <p>Digite suas credenciais para acessar</p>
+
+            <form onsubmit="return entrar()">
+                <label>E-mail</label>
+                <input type="email" name="email" placeholder="seu@email.com" required>
+
+                <label>Senha</label>
+                <input type="password" name="senha" placeholder="Digite sua senha" required>
+
+                <button type="submit">Entrar</button>
+            </form>
+        </div>
+
+        <p>Não tem conta? <a href="cadastro.html">Cadastre-se</a></p>
+    </div>
+
+    <script src="Js/login.js"></script>
 </body>
+
 </html>

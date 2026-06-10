@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-br">
 
 <head>
@@ -9,11 +9,11 @@
 </head>
 
 <body>
-
     <header>
         <div class="logo">
             <img src="" alt="logo">
         </div>
+
         <nav>
             <a href="dashboard.html">Dashboard</a>
             <a href="produtos.html">Produtos</a>
@@ -24,6 +24,100 @@
         </nav>
     </header>
 
+    <main>
+        <div class="topo">
+            <div>
+                <h1>Vendas</h1>
+                <p class="sub">Gerencie suas vendas</p>
+            </div>
+
+            <button onclick="abrirCadastro()">+ Nova Venda</button>
+        </div>
+
+        <section class="cards">
+            <div class="card card-azul">
+                <h3>Total de Vendas</h3>
+                <p class="number" id="totalVendas">0</p>
+                <span id="ativosTexto">R$</span>
+            </div>
+
+            <div class="card card-azul">
+                <h3>Vendas Realizadas</h3>
+                <p class="number" id="vendasRealizadas">0</p>
+                <span id="vendasRealizadasTexto">vendas concluídas</span>
+            </div>
+
+            <div class="card card-azul">
+                <h3>Ticket Médio</h3>
+                <p class="number" id="ticketMedio">R$ 0</p>
+                <span>valor médio por venda</span>
+            </div>
+        </section>
+
+        <section class="box">
+            <h3>Histórico de Vendas</h3>
+
+            <div class="filtros">
+                <input type="text" id="busca" placeholder="Buscar Vendas..." onkeyup="filtrar()">
+            </div>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Cliente</th>
+                        <th>Data</th>
+                        <th>Itens</th>
+                        <th>Total</th>
+                        <th>Status</th>
+                        <th>Ações</th>
+                    </tr>
+                </thead>
+
+                <tbody id="tabelaVendas"></tbody>
+            </table>
+        </section>
+    </main>
+
+    <div id="modalVenda" class="modal">
+        <div class="modal-content">
+            <span class="fechar" onclick="fecharModal()">×</span>
+
+            <h2>Adicionar Nova Venda</h2>
+            <p class="sub">Preencha as informações</p>
+
+            <div class="form-grid">
+                <div>
+                    <label for="nome">Cliente</label>
+                    <input type="text" id="nome" placeholder="Digite o nome do cliente">
+                </div>
+
+                <div>
+                    <label for="itens">Quantidade de Itens</label>
+                    <input type="text" id="itens" placeholder="Digite a quantidade">
+                </div>
+
+                <div class="full">
+                    <label for="valorTotal">Valor Total</label>
+                    <input type="text" id="valorTotal" placeholder="Digite o valor total">
+                </div>
+
+                <div>
+                    <label for="status">Status</label>
+                    <select id="status">
+                        <option value="ativo" selected>Ativo</option>
+                        <option value="inativo">Inativo</option>
+                        <option value="pendente">Pendente</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="acoes">
+                <button class="cancelar" onclick="fecharModal()">Cancelar</button>
+                <button onclick="salvarVenda()">Adicionar</button>
+            </div>
+        </div>
+    </div>
 </body>
 
 </html>

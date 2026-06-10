@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Financeiro</title>
     <link rel="stylesheet" href="Css/style6.css">
 </head>
+
 <body>
-        
+
     <header>
-    <div class="logo">
-        <img src="***" alt="logo">
-    </div>
+        <div class="logo">
+            <img src="" alt="logo">
+        </div>
+
         <nav>
             <a href="dashboard.html">Dashboard</a>
             <a href="produtos.html">Produtos</a>
@@ -22,5 +25,195 @@
         </nav>
     </header>
 
+    <main>
+
+        <div class="topo">
+            <div>
+                <h1>Financeiro</h1>
+                <p class="sub">Controle suas finanças</p>
+            </div>
+        </div>
+
+        <section class="cards">
+
+            <div class="card card-azul">
+                <h3>Contas a Receber</h3>
+                <p class="number" id="contasReceber">R$ 0,00</p>
+                <span id="receberTexto">0 faturas pendentes</span>
+            </div>
+
+            <div class="card card-azul">
+                <h3>Contas a Pagar</h3>
+                <p class="number" id="contasPagar">R$ 0,00</p>
+                <span id="pagarTexto">0 contas pendentes</span>
+            </div>
+
+            <div class="card card-azul">
+                <h3>Saldo Projetado</h3>
+                <p class="number" id="saldoProjetado">R$ 0,00</p>
+                <span>Após liquidação</span>
+            </div>
+
+        </section>
+
+        <section class="box">
+
+            <div class="abas">
+                <button class="aba ativa" onclick="mostrarAba('receber', this)">
+                    Contas a Receber
+                </button>
+
+                <button class="aba" onclick="mostrarAba('pagar', this)">
+                    Contas a Pagar
+                </button>
+
+                <button class="aba" onclick="mostrarAba('transacoes', this)">
+                    Transações
+                </button>
+            </div>
+
+            <!-- CONTAS A RECEBER -->
+            <div id="receber" class="conteudo">
+
+                <button onclick="abrirCadastro('receber')">
+                    + Nova Conta
+                </button>
+
+                <h3>Contas a Receber</h3>
+
+                <div class="filtros">
+                    <input type="text" id="buscaReceber" placeholder="Buscar contas..." onkeyup="filtrarReceber()">
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Descrição</th>
+                            <th>Vencimento</th>
+                            <th>Valor</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaReceber"></tbody>
+                </table>
+
+            </div>
+
+            <!-- CONTAS A PAGAR -->
+            <div id="pagar" class="conteudo oculto">
+
+                <button onclick="abrirCadastro('pagar')">
+                    + Nova Conta a Pagar
+                </button>
+
+                <h3>Contas a Pagar</h3>
+
+                <div class="filtros">
+                    <input type="text" id="buscaPagar" placeholder="Buscar contas..." onkeyup="filtrarPagar()">
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Fornecedor</th>
+                            <th>Descrição</th>
+                            <th>Valor</th>
+                            <th>Vencimento</th>
+                            <th>Status</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaPagar"></tbody>
+                </table>
+
+            </div>
+
+            <!-- TRANSAÇÕES -->
+            <div id="transacoes" class="conteudo oculto">
+
+                <button onclick="abrirCadastro('transacao')">
+                    + Nova Transação
+                </button>
+
+                <h3>Histórico de Transações</h3>
+
+                <div class="filtros">
+                    <input type="text" id="buscaTransacao" placeholder="Buscar transações..."
+                        onkeyup="filtrarTransacoes()">
+                </div>
+
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Data</th>
+                            <th>Descrição</th>
+                            <th>Tipo</th>
+                            <th>Valor</th>
+                        </tr>
+                    </thead>
+
+                    <tbody id="tabelaTransacoes"></tbody>
+                </table>
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <div id="modalFinanceiro" class="modal">
+
+        <div class="modal-content">
+
+            <span class="fechar" onclick="fecharModal()">×</span>
+
+            <h2 id="tituloModal">Nova Conta</h2>
+            <p class="sub">Preencha as informações</p>
+
+            <div class="form-grid">
+
+                <div>
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" placeholder="Digite o nome">
+                </div>
+
+                <div>
+                    <label for="descricao">Descrição</label>
+                    <input type="text" id="descricao" placeholder="Digite a descrição">
+                </div>
+
+                <div>
+                    <label for="vencimento">Vencimento</label>
+                    <input type="date" id="vencimento">
+                </div>
+
+                <div class="full">
+                    <label for="valor">Valor</label>
+                    <input type="number" id="valor" placeholder="R$ 0,00">
+                </div>
+
+            </div>
+
+            <div class="acoes">
+
+                <button class="cancelar" onclick="fecharModal()">
+                    Cancelar
+                </button>
+
+                <button onclick="salvarConta()">
+                    Adicionar
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </body>
+
 </html>
