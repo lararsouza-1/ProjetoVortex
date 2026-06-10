@@ -184,13 +184,22 @@ button:hover {
     display: none;
 }
 
-.conteudo>button {
+.topo-contas {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
     margin-bottom: 20px;
 }
 
 .box h3 {
     color: #1565c0;
-    margin-bottom: 20px;
+    margin-bottom: 0;
+}
+
+.btn-nova {
+    padding: 12px 22px;
+    white-space: nowrap;
 }
 
 input,
@@ -229,8 +238,9 @@ thead {
 
 th,
 td {
-    padding: 15px;
+    padding: 12px;
     text-align: center;
+    vertical-align: middle;
 }
 
 tbody tr {
@@ -243,28 +253,35 @@ tbody tr:hover {
     background: #e7f7ff;
 }
 
+.status-pendente,
+.status-pago,
+.status-vencido {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 65px;
+    height: 24px;
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 11px;
+    font-weight: 600;
+    white-space: nowrap;
+    margin: 0 auto;
+}
+
 .status-pendente {
     background: #fff3cd;
     color: #856404;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 13px;
 }
 
 .status-pago {
     background: #d4edda;
     color: #155724;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 13px;
 }
 
 .status-vencido {
     background: #f8d7da;
     color: #721c24;
-    padding: 6px 12px;
-    border-radius: 20px;
-    font-size: 13px;
 }
 
 .modal {
@@ -379,6 +396,15 @@ label {
 
     .abas {
         flex-direction: column;
+    }
+
+    .topo-contas {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .btn-nova {
+        width: 100%;
     }
 
     .form-grid {

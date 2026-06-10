@@ -72,14 +72,15 @@
                 </button>
             </div>
 
-            <!-- CONTAS A RECEBER -->
             <div id="receber" class="conteudo">
 
-                <button onclick="abrirCadastro('receber')">
-                    + Nova Conta
-                </button>
+                <div class="topo-contas">
+                    <h3>Contas a Receber</h3>
 
-                <h3>Contas a Receber</h3>
+                    <button class="btn-nova" onclick="abrirCadastro('receber')">
+                        + Nova Conta
+                    </button>
+                </div>
 
                 <div class="filtros">
                     <input type="text" id="buscaReceber" placeholder="Buscar contas..." onkeyup="filtrarReceber()">
@@ -102,14 +103,15 @@
 
             </div>
 
-            <!-- CONTAS A PAGAR -->
             <div id="pagar" class="conteudo oculto">
 
-                <button onclick="abrirCadastro('pagar')">
-                    + Nova Conta a Pagar
-                </button>
+                <div class="topo-contas">
+                    <h3>Contas a Pagar</h3>
 
-                <h3>Contas a Pagar</h3>
+                    <button class="btn-nova" onclick="abrirCadastro('pagar')">
+                        + Nova Conta a Pagar
+                    </button>
+                </div>
 
                 <div class="filtros">
                     <input type="text" id="buscaPagar" placeholder="Buscar contas..." onkeyup="filtrarPagar()">
@@ -132,14 +134,15 @@
 
             </div>
 
-            <!-- TRANSAÇÕES -->
             <div id="transacoes" class="conteudo oculto">
 
-                <button onclick="abrirCadastro('transacao')">
-                    + Nova Transação
-                </button>
+                <div class="topo-contas">
+                    <h3>Histórico de Transações</h3>
 
-                <h3>Histórico de Transações</h3>
+                    <button class="btn-nova" onclick="abrirCadastro('transacao')">
+                        + Nova Transação
+                    </button>
+                </div>
 
                 <div class="filtros">
                     <input type="text" id="buscaTransacao" placeholder="Buscar transações..."
@@ -149,9 +152,9 @@
                 <table>
                     <thead>
                         <tr>
+                            <th>Tipo</th>
                             <th>Data</th>
                             <th>Descrição</th>
-                            <th>Tipo</th>
                             <th>Valor</th>
                         </tr>
                     </thead>
@@ -213,6 +216,8 @@
         </div>
 
     </div>
+
+    <script src="Js/finan.js"></script>
 
 </body>
 
