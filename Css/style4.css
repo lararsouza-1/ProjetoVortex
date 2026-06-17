@@ -95,6 +95,64 @@ button:hover {
     font-size: 40px;
     color: #01579b;
 }
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(6px);
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+}
+
+.modal-caixa {
+    background: white;
+    width: 600px;
+    padding: 30px;
+    border-radius: 20px;
+    position: relative;
+}
+
+.fechar {
+    position: absolute;
+    right: 25px;
+    top: 20px;
+    font-size: 25px;
+    cursor: pointer;
+    color: #0288d1;
+}
+
+.modal-caixa h2 {
+    color: #12405c;
+    margin-bottom: 8px;
+}
+
+.modal-caixa p {
+    margin-bottom: 20px;
+    color: #2d7fad;
+}
+
+.modal-caixa label {
+    display: block;
+    margin-top: 12px;
+    margin-bottom: 5px;
+    color: #0066c9;
+    font-weight: bold;
+}
+
+.modal-caixa input {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #b8e7ff;
+    border-radius: 10px;
+    outline: none;
+}
+
+.modal-caixa button {
+    margin-top: 20px;
+    width: 100%;
+}
 
 .sub {
     color: #3d7ea6;
